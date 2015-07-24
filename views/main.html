@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Hello</h2>
+  <p>Welcome to unisalad, home to all your studenty needs!</p>
+
+  <div ng-controller="MainCtrl">
+    <md-select class="select-uni" placeholder="Select your university" ng-model="university" ng-change="uniSelected()">
+    <md-option ng-repeat="uni in universities" value="{{ uni }}">{{ uni }}</md-option>
+    </md-select>
+    
+    <a ng-href="#/login">
+      <md-button class="md-raised md-primary button-wide">Go</md-button>
+    </a>
+  </div>
+</div>

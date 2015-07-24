@@ -1,0 +1,154 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbblzWAu1KjtMZO3mzkYwxe-jmKND3CRQ"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    
+    <!-- endbuild -->
+  </head>
+  <body ng-app="yomantutApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="header">
+
+      <div class="menus" ng-controller="AppCtrl">
+
+        <md-content>
+          <md-toolbar>
+            <div class="md-toolbar-tools">
+              <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
+                <md-icon md-svg-icon="bower_components/material-design-icons/navigation/svg/production/ic_menu_48px.svg"></md-icon>
+              </md-button>
+              <h2>
+                <span>unisalad</span>
+              </h2>
+              <md-button class="md-icon-button to-right" aria-label="Filter" ng-hide="hideFilter" ng-click="toggleRight()">
+                <md-icon md-svg-icon="bower_components/material-design-icons/content/svg/production/ic_filter_list_48px.svg"></md-icon>
+              </md-button>
+            </div>
+          </md-toolbar>
+          
+        </md-content>
+
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+          <md-toolbar class="md-theme-indigo">
+            <div class="md-toolbar-tools">
+              <h1>Menu</h1>
+              <md-button class="md-icon-button to-right" aria-label="Settings" ng-click="toggleLeft()">
+                  <md-icon md-svg-icon="bower_components/material-design-icons/navigation/svg/production/ic_arrow_back_48px.svg"></md-icon>
+                </md-button>
+            </div>
+          </md-toolbar>
+
+          <md-content layout-padding ng-controller="LeftCtrl">
+            <md-list>
+              <md-list-item ng-click="closeAndChangePage('#/')">
+                <md-icon md-svg-icon="bower_components/material-design-icons/action/svg/production/ic_home_48px.svg"></md-icon>
+                <p>Home</p>
+              </md-list-item>
+              
+              <md-list-item ng-click="closeAndChangePage('#/profile')">
+                <md-icon md-svg-icon="bower_components/material-design-icons/social/svg/production/ic_person_48px.svg"></md-icon>
+                <p>My profile</p>
+              </md-list-item>
+              
+              <md-divider></md-divider>
+
+              <md-list-item ng-click="closeAndChangePage('#/about')">
+                <md-icon md-svg-icon="bower_components/material-design-icons/maps/svg/production/ic_local_offer_48px.svg"></md-icon>
+                <p>About</p>
+              </md-list-item>
+            </md-list>
+          </md-content>
+        </md-sidenav>
+
+        <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+          <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Filter List</h1>
+          </md-toolbar>
+          <md-content layout-padding ng-controller="RightCtrl">
+            <md-input-container>
+            <label>Search</label>
+              <input ng-model="searchText.words">
+            </md-input-container> 
+            <md-button md-no-ink ng-click="close()">lol</md-button>
+          </md-content>
+        </md-sidenav>
+
+      </div>
+    </div>
+
+    <div class="container" ng-controller="AppCtrl">
+      <div ng-view="" class=""></div>
+    </div>
+
+    
+
+    
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/tool.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/listview.js"></script>
+        <script src="scripts/directives/post.js"></script>
+        <script src="scripts/controllers/app.js"></script>
+        <script src="scripts/services/searchtext.js"></script>
+        <script src="scripts/filters/capitalise.js"></script>
+        <script src="scripts/controllers/addpost.js"></script>
+        <!-- endbuild -->
+
+</body>
+</html>
