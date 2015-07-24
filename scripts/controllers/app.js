@@ -13,7 +13,7 @@ angular.module('yomantutApp')
     //$animate.enabled('md-sidenav', true);
 
     $scope.hideFilter = true;
-    /*
+    
     $scope.$on('$routeChangeStart', function(event, next) {
       var path = next.$$route.originalPath;
       $log.debug('path is now ' + path);
@@ -24,7 +24,6 @@ angular.module('yomantutApp')
        }
        $scope.$evalAsync();
     });
-    */
 
     function buildToggler(navID) {
       var debounceFn =  $mdUtil.debounce(function(){
