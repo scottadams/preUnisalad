@@ -11,7 +11,18 @@ angular.module('yomantutApp')
   .controller('AddpostCtrl', function ($scope) {
     $scope.possibleNumber = [1, 2, 3, 4, 5, 6];
     $scope.numberOfTickets = 1;
-
+    $scope.post = {
+    	ticket: '',
+    	numberOfTickets: 1,
+    	cost: '',
+    	location: '',
+    	contact: {
+    		email: true,
+    		text: true,
+    		facebook: true
+    	}
+	};
+    /*
 	var mapOptions = {
 	  center: new google.maps.LatLng(52.948347, -1.181688),
 	  zoom: 12,
@@ -28,5 +39,10 @@ angular.module('yomantutApp')
 
 	var autocomplete = new google.maps.places.Autocomplete(input, options);
 	autocomplete.bindTo('bounds', map);
+	*/
+	var add = function () {
+		$location.path('/listview')
+		//send info to server
+	};
 
   });
