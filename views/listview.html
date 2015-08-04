@@ -8,7 +8,7 @@
 	    	<md-option ng-repeat="mode in sortModes" value="{{ mode.code }}">{{ mode.label }}</md-option>
 		</md-select>
   	</span>
-	<div class="list-container" ng-repeat="pst in posts | filter:searchText.words | orderBy:sortBy">
+	<div class="list-container" ng-repeat="pst in posts | searchAll:searchText.words | orderBy:sortBy">
 		<post info="pst"></post>
 	</div>
 
@@ -16,4 +16,6 @@
 	<md-button aria-label="Add post" href="#/addPost" class="md-fab md-primary add-post">
 		<md-icon md-svg-icon="bower_components/material-design-icons/content/svg/production/ic_add_48px.svg"></md-icon>
 	</md-button>
+
+
 </div>

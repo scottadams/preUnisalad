@@ -1,8 +1,13 @@
 <div ng-controller="ToolCtrl">
-	<div ng-repeat="option in items">
-		<a ng-href="#/listview">
-			<md-button class="md-raised button-wide" >{{ option.name }}</md-button>
-		</a>
-		<p>{{ option.posts }} posts</p>
-	</div>
+
+	<md-list>
+	  <md-list-item class="md-2-line" ng-click="goToList(option.label)" ng-repeat="option in items">
+	    <!--<md-icon md-svg-icon="{{option.icon}}"></md-icon>-->
+	    <div class="md-list-item-text">
+          <h3>{{ option.name }}</h3>
+          <p>{{ option.posts }} posts</p>
+        </div>
+        <md-divider></md-divider>
+	  </md-list-item>
+	</md-list>
 </div>

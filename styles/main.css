@@ -18,8 +18,10 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -130,6 +132,34 @@ md-sidenav .md-sidenav-right {
 }
 
 
+
+/*----------------------------------------------------------------------------------*/
+/*------------------------------------login page------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+
+md-content .login-signup {
+  background-color: transparent !important; 
+  padding-top: 0;
+}
+
+md-content h3:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1; 
+}
+
+md-content md-input-container:last-child {
+  padding-bottom: 0;
+}
+
+
+
+
 /*----------------------------------------------------------------------------------*/
 /*-------------------------------------posts page-----------------------------------*/
 /*----------------------------------------------------------------------------------*/
@@ -158,8 +188,19 @@ md-card {
   margin-left: 0;
 }
 
-.card-title {
-  border-bottom: solid 1px #ddd;
+.post-card-content :last-child {
+  margin-bottom: 0;
+}
+
+.make-flex {
+  display: flex;
+}
+
+.card-username {
+  color: #555;
+  font-size: 0.8em;
+  margin-top: 18px;
+  margin-bottom: auto;
 }
 
 

@@ -17,9 +17,9 @@ angular.module('yomantutApp')
     	item: 'Crisis ticket',
     	postDate: new Date("2015-03-20"),
     	user: 'Helen Mart',
-        number: 2,
+        number: 1,
     	cost: 20,
-    	meet: '[some geo data]',
+    	meet: 'Lenton pick up',
     	eventDate: new Date("2015-03-25")
     },
     {
@@ -28,7 +28,7 @@ angular.module('yomantutApp')
         user: 'James Smith',
         number: 2,
         cost: 18.5,
-        meet: '[some geo data]',
+        meet: 'your house',
         eventDate: new Date("2015-03-25")
     },
     {
@@ -37,7 +37,7 @@ angular.module('yomantutApp')
         user: 'James Bore',
         number: 2,
         cost: 22,
-        meet: '[some geo data]',
+        meet: 'the moon',
         eventDate: new Date("2015-03-26")
     },
     {
@@ -46,7 +46,7 @@ angular.module('yomantutApp')
     	user: 'Bob todd',
         number: 1,
     	cost: 12,
-    	meet: '[some geo data]',
+    	meet: 'Lenton pick up',
     	eventDate: new Date("2015-03-19")
     },
     {
@@ -55,16 +55,16 @@ angular.module('yomantutApp')
         user: 'Rad Cliff',
         number: 3,
         cost: 5,
-        meet: '[some geo data]',
+        meet: 'library',
         eventDate: new Date("2015-12-19")
     },
     {
         item: 'Boiler Room',
         postDate: new Date("2014-02-25"),
         user: 'Hudmo lol',
-        number: 5,
-        cost: 100,
-        meet: '[some geo data]',
+        number: 1,
+        cost: 10,
+        meet: 'SN8 massive',
         eventDate: new Date("2015-10-19")
     }
     ];

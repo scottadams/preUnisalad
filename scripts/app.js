@@ -55,6 +55,10 @@ angular
         templateUrl: 'views/addpost.html',
         controller: 'AddpostCtrl'
       })
+      .when('/profile', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

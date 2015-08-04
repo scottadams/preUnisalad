@@ -8,7 +8,7 @@
  * Controller of the yomantutApp
  */
 angular.module('yomantutApp')
-  .controller('AddpostCtrl', function ($scope) {
+  .controller('AddpostCtrl', [ '$scope', '$location', function ($scope, $location) {
     $scope.possibleNumber = [1, 2, 3, 4, 5, 6];
     $scope.numberOfTickets = 1;
     $scope.post = {
@@ -40,9 +40,9 @@ angular.module('yomantutApp')
 	var autocomplete = new google.maps.places.Autocomplete(input, options);
 	autocomplete.bindTo('bounds', map);
 	*/
-	var add = function () {
-		$location.path('/listview')
+	$scope.add = function () {
+		$location.path('/listview');
 		//send info to server
 	};
 
-  });
+  }]);

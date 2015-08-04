@@ -8,22 +8,36 @@
  * Controller of the yomantutApp
  */
 angular.module('yomantutApp')
-  .controller('ToolCtrl', function ($scope) {
+  .controller('ToolCtrl', ['$scope', '$location', 'localStorageService', function ($scope, $location, localStorageService) {
     $scope.items = [ {
+        label: 'tickets',
     	name: 'Tickets',
-    	posts: '10'
+    	posts: '10',
+        icon: ''
     },
     {
-    	name: 'lifts',
-    	posts: '21'
+        label: 'lifts',
+    	name: 'Lifts',
+    	posts: '21',
+        icon: 'bower_components/material-design-icons/maps/svg/production/ic_directions_car_48px.svg'
     },
     {
-    	name: 'Lost and Found',
-    	posts: '100'
+        label: 'misc',
+    	name: 'Miscellaneous',
+    	posts: '100',
+        icon: ''
     },
     {
-    	name: 'For Sale',
-    	posts: '20'
+        label: 'sale',
+    	name: 'For sale',
+    	posts: '20',
+        icon: ''
     }
     ];
-  });
+
+    $scope.goToList = function (list) {
+        console.log(list);
+        $location.path('/listview');
+        localStorageService.set('list', list);
+    };
+  }]);

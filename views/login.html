@@ -1,23 +1,52 @@
 <div ng-controller="LoginCtrl">
-	<h3>Please login to your {{ university }} account</h3>
+  <md-content class="login-signup">
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="login">
+        <md-content class="md-padding">
+          <h3>Login to your {{ university }} account</h3>
 
-  <div layout layout-sm="column">
-    <md-input-container flex>
-      <label>Email</label>
-      <input ng-model="user.email" type="email">
-    </md-input-container>
-    <md-input-container flex>
-      <label>Password</label>
-      <input ng-model="theMax" type="password">
-    </md-input-container>
-    <md-input-container flex>
-    <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary"> Remember Me
-  </md-input-container>
-  <md-input-container flex>
-    <a ng-href="#/tool">
-      <md-button class="md-raised md-primary button-wide">Submit</md-button>
-    </a>
-  </md-input-container>
-  </div>
+          <md-input-container flex>
+            <label>Email</label>
+            <input ng-model="user.email" type="email">
+          </md-input-container>
+          <md-input-container flex>
+            <label>Password</label>
+            <input ng-model="theMax" type="password">
+          </md-input-container>
+          <md-input-container flex>
+            <md-checkbox md-no-ink aria-label="Remember me" ng-model="remember" class="md-primary"> Remember Me
+          </md-input-container>
+          <md-input-container flex>
+              <md-button ng-href="#/tool" class="md-raised md-primary button-wide">Submit</md-button>
+          </md-input-container>
+        </md-content>
+      </md-tab>
 
+      <md-tab label="signUp">
+        <md-content class="md-padding">
+          <h3>Sign up to unisalad :)</h3>
+
+          <md-input-container flex>
+              <label>Name</label>
+              <input ng-model="user.name">
+          </md-input-container>
+          <md-input-container flex>
+              <label>University email</label>
+              <input ng-model="user.email" type="email">
+          </md-input-container>
+          <md-input-container flex>
+              <label>Password</label>
+              <input ng-model="user.password" type="password">
+          </md-input-container>
+          <md-input-container flex>
+              <label>Mobile number</label>
+              <input ng-model="user.mobile" type="number">
+          </md-input-container>
+          <md-input-container flex>
+              <md-button class="md-primary md-raised facebook" ng-click="createUser">Connect with facebook?</md-button>
+          </md-input-container>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
 </div>
