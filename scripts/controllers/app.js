@@ -18,9 +18,9 @@ angular.module('yomantutApp')
       var path = next.$$route.originalPath;
       $log.debug('path is now ' + path);
       if (path === '/listview') {
-         $scope.hideFilter = false;
+         $scope.onListview = true;
        } else {
-         $scope.hideFilter = true;
+         $scope.onListview = false;
        }
        $scope.$evalAsync();
     });

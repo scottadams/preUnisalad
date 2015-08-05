@@ -8,10 +8,11 @@
  * Controller of the yomantutApp
  */
 angular.module('yomantutApp')
-  .controller('ListviewCtrl', ['$scope', 'searchText', 'filterFilter', 'localStorageService', '$animate', 
-                                function ($scope, searchText, filterFilter, localStorageService, $animate) {
+  .controller('ListviewCtrl', ['$scope', 'searchText', 'filterFilter', 'localStorageService', '$animate', '$mdBottomSheet', 
+                                function ($scope, searchText, filterFilter, localStorageService, $animate, $mdBottomSheet) {
 
     $scope.searchText = searchText;
+    var showAddPost = true;
 
     $scope.posts = [{
     	item: 'Crisis ticket',
@@ -69,9 +70,7 @@ angular.module('yomantutApp')
     }
     ];
 
-    localStorageService.set('ticketPosts', $scope.posts)
-
-
+    //localStorageService.set('ticketPosts', $scope.posts)
 
     $scope.sortModes = [{
         label: 'Date added',
@@ -88,5 +87,21 @@ angular.module('yomantutApp')
 
     $scope.sortBy = 'postDate';
 
+    //---------------------------------------------------------------------
+    //---------------------------------------------------------------------
+    //---------------------------------------------------------------------
+
+    $scope.openPostDetails = function($event, info) {
+        console.log(info.item)
+        $mdBottomSheet.show({
+            templateUrl: 'views/postdetails.html',
+            controller: 'PostdetailCtrl',
+            targetEvent: $event
+        });
+    };
+
+    $scope.test = function() {
+        console.log('test')
+    }
 
   }]);
