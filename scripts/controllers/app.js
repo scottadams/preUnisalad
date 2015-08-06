@@ -12,7 +12,7 @@ angular.module('yomantutApp')
     //$animate.enabled(false);
     //$animate.enabled('md-sidenav', true);
 
-    $scope.hideFilter = true;
+    $scope.onListview = false;
     
     $scope.$on('$routeChangeStart', function(event, next) {
       var path = next.$$route.originalPath;
@@ -49,12 +49,3 @@ angular.module('yomantutApp')
         });
     };
   }])
-    .controller('RightCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', 'searchText', function ($scope, $timeout, $mdSidenav, $log, searchText) {
-      $scope.searchText = searchText;
-    $scope.close = function () {
-      $mdSidenav('right').close()
-        .then(function () {
-          $log.debug('close RIGHT is done');
-        });
-    };
-  }]);

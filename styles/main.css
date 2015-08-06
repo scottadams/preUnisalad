@@ -27,6 +27,7 @@ body {
   max-width: 600px;
   margin-right: auto;
   margin-left: auto;
+  overflow: hidden;
 }
 
 md-toolbar {
@@ -36,33 +37,44 @@ md-toolbar {
 
 md-content.all-content {
   flex: 1 1 auto;
-  overflow: auto;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
+  background-image: url("../images/noise.png");
+  background-repeat: repeat;
+  margin-bottom: 32px;
 }
 
 .container {
+  position: absolute;
+  min-height: 100%;
+  width: 100%;
+}
+
+.container-ng-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 64px;
   margin: 4%;
+}
+
+.container-welcome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 4%;
+  background-color: white;
+  display: flex;
+  flex-flow: column;
+}
+
+.to-bottom {
+  margin-top: auto;
+}
+
+.bottom-padding {
+  padding-bottom: 10px;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -71,14 +83,6 @@ md-content.all-content {
     position: relative;
     max-width: 730px;
   }
-
-  /* Remove the padding we set earlier */
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
 
 
   /* Remove the bottom border on the jumbotron for visual effect */
@@ -171,6 +175,10 @@ md-content md-input-container:last-child {
   padding-bottom: 0;
 }
 
+md-tabs.login-tabs {
+  margin-bottom: 60px;
+}
+
 
 
 
@@ -200,6 +208,7 @@ md-card {
 .post-card {
   margin-right: 0;
   margin-left: 0;
+  margin-bottom: 12px;
 }
 
 .post-card-content :last-child {
@@ -217,10 +226,17 @@ md-card {
   margin-bottom: auto;
 }
 
-.post-detail-sheet {
+md-bottom-sheet.post-detail-sheet {
   max-width: 600px;
 }
 
+/*otherwise bottom-sheet items spill onto neow line for very small devices eg iphone 4 */
+@media screen and (max-width: 360px) {
+  md-grid-list-item > button.md-grid-item-content {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
 
 /*----------------------------------------------------------------------------------*/
 /*----------------------------------add post page-----------------------------------*/

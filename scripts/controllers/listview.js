@@ -15,6 +15,7 @@ angular.module('yomantutApp')
     var showAddPost = true;
 
     $scope.posts = [{
+        id: 1,
     	item: 'Crisis ticket',
     	postDate: new Date("2015-03-20"),
     	user: 'Helen Mart',
@@ -24,6 +25,7 @@ angular.module('yomantutApp')
     	eventDate: new Date("2015-03-25")
     },
     {
+        id: 2,
         item: 'Crisis ticket',
         postDate: new Date("2015-03-14"),
         user: 'James Smith',
@@ -33,6 +35,7 @@ angular.module('yomantutApp')
         eventDate: new Date("2015-03-25")
     },
     {
+        id: 3,
         item: 'Crisis ticket',
         postDate: new Date("2015-03-21"),
         user: 'James Bore',
@@ -42,6 +45,7 @@ angular.module('yomantutApp')
         eventDate: new Date("2015-03-26")
     },
     {
+        id: 4,
     	item: 'crisis ticket',
     	postDate: new Date("2015-02-22"),
     	user: 'Bob todd',
@@ -51,6 +55,7 @@ angular.module('yomantutApp')
     	eventDate: new Date("2015-03-19")
     },
     {
+        id: 5,
         item: 'Ocean',
         postDate: new Date("2014-02-25"),
         user: 'Rad Cliff',
@@ -60,6 +65,7 @@ angular.module('yomantutApp')
         eventDate: new Date("2015-12-19")
     },
     {
+        id: 6,
         item: 'Boiler Room',
         postDate: new Date("2014-02-25"),
         user: 'Hudmo lol',
