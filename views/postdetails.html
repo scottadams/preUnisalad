@@ -1,11 +1,9 @@
-<md-bottom-sheet class="post-detail-sheet">
-	<p>extra info about the post if it exists</p>
-<div>
-	<md-grid-list>
-	  <md-grid-list-header>
-	    <h3>Contact</h3>
-	  </md-grid-list-header>
+<md-bottom-sheet class="post-detail-sheet" ng-controller="PostdetailCtrl">
+	<p>extra info about the {{ post.item }} post if it exists</p>
 
+	<h3 ng-click="test()">Contact</h3>
+
+	<md-grid-list class="contact-methods">
 		<md-grid-list-item>
 	    	<md-button class="md-grid-item-content" ng-click="">
 	        	<md-icon md-svg-src="bower_components/material-design-icons/communication/svg/production/ic_message_48px.svg"></md-icon>
@@ -28,6 +26,5 @@
 	    </md-grid-list-item>
 
 	</md-grid-list>
-</div>
 
 </md-bottom-sheet>

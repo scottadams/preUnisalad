@@ -8,11 +8,10 @@
  * Controller of the yomantutApp
  */
 angular.module('yomantutApp')
-  .controller('ListviewCtrl', ['$scope', 'searchText', 'filterFilter', 'localStorageService', '$animate', '$mdBottomSheet', 
-                                function ($scope, searchText, filterFilter, localStorageService, $animate, $mdBottomSheet) {
+  .controller('ListviewCtrl', ['$scope', 'searchText', 'filterFilter', 'localStorageService', '$animate', '$mdBottomSheet', 'tappedPost',
+                                function ($scope, searchText, filterFilter, localStorageService, $animate, $mdBottomSheet, tappedPost) {
 
     $scope.searchText = searchText;
-    var showAddPost = true;
 
     $scope.posts = [{
         id: 1,
@@ -96,9 +95,10 @@ angular.module('yomantutApp')
     //---------------------------------------------------------------------
     //---------------------------------------------------------------------
     //---------------------------------------------------------------------
-
+    $scope.focusPost = $scope.posts[0]
     $scope.openPostDetails = function($event, info) {
-        console.log(info.item)
+        tappedPost.post = info
+
         $mdBottomSheet.show({
             templateUrl: 'views/postdetails.html',
             controller: 'PostdetailCtrl',

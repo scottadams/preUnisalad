@@ -24,7 +24,7 @@ body {
   display: flex;
   flex-flow: column;
   height: 100%;
-  max-width: 600px;
+  max-width: 768px;
   margin-right: auto;
   margin-left: auto;
   overflow: hidden;
@@ -80,8 +80,8 @@ md-content.all-content {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    position: relative;
-    max-width: 730px;
+    
+    max-width: 768px;
   }
 
 
@@ -227,14 +227,21 @@ md-card {
 }
 
 md-bottom-sheet.post-detail-sheet {
-  max-width: 600px;
+  max-width: 768px;
+}
+
+
+md-grid-list.contact-methods {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 325px;
 }
 
 /*otherwise bottom-sheet items spill onto neow line for very small devices eg iphone 4 */
 @media screen and (max-width: 360px) {
   md-grid-list-item > button.md-grid-item-content {
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 2px;
+    margin-right: 2px;
   }
 }
 

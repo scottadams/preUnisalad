@@ -8,10 +8,6 @@
  * Controller of the yomantutApp
  */
 angular.module('yomantutApp')
-  .controller('PostdetailCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('PostdetailCtrl', ['$scope', 'tappedPost', function ($scope, tappedPost) {
+    $scope.post = tappedPost.post;
+  }]);
