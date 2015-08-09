@@ -103,10 +103,10 @@ angular.module('yomantutApp')
 
         $scope.backdrop = true;
 
-        ScrollOperation(info);
-
         tappedPost.post = info;
 
+        ScrollOperation(info);
+        
         $mdBottomSheet.show({
             templateUrl: 'views/postdetails.html',
             controller: 'PostdetailCtrl',

@@ -33,7 +33,7 @@
 
 <div class="all" ng-controller="AppCtrl">
 
-      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-swipe-left="toggleLeft()" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
           <md-toolbar class="md-theme-indigo">
             <div class="md-toolbar-tools">
               <h1>Menu</h1>
@@ -77,12 +77,17 @@
               <h2>
                 <span>unisalad</span>
               </h2>
-              <md-button class="md-icon-button to-right" aria-label="My things" ng-click="toggleRight()">
+              <md-button ng-if="loggedIn" class="md-icon-button to-right" aria-label="My things" ng-click="toggleRight()">
                 <md-icon md-svg-icon="bower_components/material-design-icons/social/svg/production/ic_person_48px.svg"></md-icon>
+              </md-button>
+
+              <md-button ng-if="!loggedIn" class="to-right" aria-label="My things" ng-click="toggleRight()">
+                <md-icon md-svg-icon="bower_components/material-design-icons/social/svg/production/ic_person_48px.svg"></md-icon>
+                Login
               </md-button>
             </div>
           </md-toolbar>
-          <md-content md-swipe-right="toggleLeft()" id="content-scrollable" class="all-content">
+          <md-content md-swipe-right="toggleLeft()" md-swipe-left="toggleRight()" id="content-scrollable" class="all-content">
             <div class="container" ng-controller="AppCtrl">
               <div ng-view="" class="container-ng-view"></div>
             </div>
@@ -94,13 +99,57 @@
 
       </div>
 
-      <md-sidenav md-component-id="right" md-is-locked-open="$mdMedia('min-width: 333px')" class="md-sidenav-right">
-        <form>
-          <md-input-container>
-            <label for="testInput">Test input</label>
-            <input id="testInput" type="text" ng-model="data" md-sidenav-focus>
-          </md-input-container>
-        </form>
+      <md-sidenav ng-if="loggedIn" md-component-id="right" md-swipe-right="toggleRight()" md-is-locked-open="$mdMedia('gt-md')" class="md-sidenav-right">
+        <md-toolbar class="md-theme-indigo">
+          <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleRight()">
+                <md-icon md-svg-icon="bower_components/material-design-icons/navigation/svg/production/ic_arrow_forward_48px.svg"></md-icon>
+              </md-button>
+            <h1 class="to-right">My Things</h1>
+          </div>
+        </md-toolbar>
+        <md-content layout-padding ng-controller="RightCtrl">
+          <md-list>
+            <md-list-item class="md-2-line">
+            <img ng-src="https://placekitten.com/110/110" class="md-avatar" alt="fbFace" />
+              <div class="md-list-item-text">
+                <h3>My name</h3>
+                <p>My University</p>
+              </div>
+            </md-list-item>
+          </md-list>
+          <md-list>
+            <md-list-header>My things for Sale</md-list-header>
+            <md-subheader>Tickets</md-subheader>
+            <md-list-item>
+              <p>Test item</p>
+              <span class="md-secondary">
+                <md-icon aria-label="Edit" md-svg-icon="bower_components/material-design-icons/image/svg/production/ic_edit_48px.svg"></md-icon>
+                <md-icon aria-label="Delete" md-svg-icon="bower_components/material-design-icons/navigation/svg/production/ic_close_48px.svg"></md-icon>
+              </span>
+            </md-list-item>
+            <md-list-item>
+              <p>Test item</p>
+              <span class="md-secondary">
+                <md-icon aria-label="Edit" md-svg-icon="bower_components/material-design-icons/image/svg/production/ic_edit_48px.svg"></md-icon>
+                <md-icon aria-label="Delete" md-svg-icon="bower_components/material-design-icons/navigation/svg/production/ic_close_48px.svg"></md-icon>
+              </span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-subheader>Lifts</md-subheader>
+            <md-divider></md-divider>
+            <md-subheader>Miscellaneous</md-subheader>
+            <md-list-item>
+              <p>Test item</p>
+              <span class="md-secondary">
+                <md-icon aria-label="Edit" md-svg-icon="bower_components/material-design-icons/image/svg/production/ic_edit_48px.svg"></md-icon>
+                <md-icon aria-label="Delete" md-svg-icon="bower_components/material-design-icons/navigation/svg/production/ic_close_48px.svg"></md-icon>
+              </span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-subheader>For Sale</md-subheader>
+          </md-list>
+        </md-content>
       </md-sidenav>
 
 

@@ -1,9 +1,11 @@
+"use strict"
+
 $.fn.scrollTo = function( target, options, callback ){
   if(typeof options == 'function' && arguments.length == 2){ callback = options; options = target; }
   var settings = $.extend({
     scrollTarget  : target,
     offsetTop     : 50,
-    duration      : 500,
+    duration      : 400,
     easing        : 'easeInOutCubic'
   }, options);
   return this.each(function(){

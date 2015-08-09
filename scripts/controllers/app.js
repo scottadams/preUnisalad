@@ -38,6 +38,11 @@ angular.module('yomantutApp')
 
     $scope.toggleLeft = buildToggler('left');
     $scope.toggleRight = buildToggler('right');
+
+
+
+    $scope.loggedIn = true;
+
     
   }])
   .controller('LeftCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', '$location', function ($scope, $timeout, $mdSidenav, $log, $location) {
