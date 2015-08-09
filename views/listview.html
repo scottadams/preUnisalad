@@ -1,4 +1,4 @@
-<div ng-controller="ListviewCtrl" class="list-container">
+<div ng-controller="ListviewCtrl" id="listview" class="listview-container">
     <div class="search-container">
     	<md-input-container class="search-posts">
 	    	<label>Search</label>
@@ -10,9 +10,7 @@
 		</md-select>
   	</div>
 
-	<div class="list-container" ng-repeat="pst in posts | searchAll:searchText.words | orderBy:sortBy">
-		<div ng-click="openPostDetails($event, pst)"><post info="pst"></post></div>
-	</div>
-
+	<post id=" id{{ pst.id }}" ng-repeat="pst in posts | searchAll:searchText.words | orderBy:sortBy" ng-click="openPostDetails($event, pst)" info="pst">
+	</post>
 	
 </div>

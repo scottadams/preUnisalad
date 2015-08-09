@@ -49,3 +49,8 @@ angular.module('yomantutApp')
         });
     };
   }])
+  .controller('RightCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', '$location', function ($scope, $timeout, $mdSidenav, $log, $location) {
+    $scope.closeRight = function () {
+      $mdSidenav('right').close();
+    };
+  }]);

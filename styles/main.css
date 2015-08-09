@@ -20,6 +20,16 @@ body {
 
 /* Custom page header */
 
+div.all {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-flow: row;
+}
+
 .view-container {
   display: flex;
   flex-flow: column;
@@ -186,6 +196,11 @@ md-tabs.login-tabs {
 /*-------------------------------------posts page-----------------------------------*/
 /*----------------------------------------------------------------------------------*/
 
+post {
+  position: relative;
+  z-index: 1;
+}
+
 md-card {
   margin: 4px;
 }
@@ -209,6 +224,12 @@ md-card {
   margin-right: 0;
   margin-left: 0;
   margin-bottom: 12px;
+}
+
+.post-card-content {
+  color: rgba(0,0,0,0.87);
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
 }
 
 .post-card-content :last-child {
@@ -236,6 +257,51 @@ md-grid-list.contact-methods {
   margin-left: auto;
   max-width: 325px;
 }
+
+/*prevent bottom-sheet backdrop default*/
+md-backdrop.md-bottom-sheet-backdrop.md-opaque {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+md-card-content.bottom-sheet-open {
+  color: rgba(0,0,0,0.40);
+}
+
+div.listview-container {
+  margin-bottom: 0;
+  -webkit-transition: margin-bottom 0.4s;
+  transition: margin-bottom 0.4s;
+}
+
+div.listview-container.bottom-sheet-open {
+  margin-bottom: 300px;
+}
+
+md-card {
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+
+md-card.bottom-sheet-open {
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.14), 0px 16px 24px 2px rgba(0, 0, 0, 0.098), 0px 6px 30px 5px rgba(0, 0, 0, 0.084);
+}
+
+div.fill-absolute {
+  background-color: rgba(255, 255, 255, 0);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  -webkit-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+}
+
+div.fill-absolute.whiten {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 
 /*otherwise bottom-sheet items spill onto neow line for very small devices eg iphone 4 */
 @media screen and (max-width: 360px) {

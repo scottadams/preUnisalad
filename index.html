@@ -31,43 +31,45 @@
 
     <!-- Add your site or application content here -->
 
+<div class="all" ng-controller="AppCtrl">
 
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-      <md-toolbar class="md-theme-indigo">
-        <div class="md-toolbar-tools">
-          <h1>Menu</h1>
-          <md-button class="md-icon-button to-right" aria-label="Settings" ng-click="toggleLeft()">
-              <md-icon md-svg-icon="bower_components/material-design-icons/navigation/svg/production/ic_arrow_back_48px.svg"></md-icon>
-            </md-button>
-        </div>
-      </md-toolbar>
+      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+          <md-toolbar class="md-theme-indigo">
+            <div class="md-toolbar-tools">
+              <h1>Menu</h1>
+              <md-button class="md-icon-button to-right" aria-label="Settings" ng-click="toggleLeft()">
+                  <md-icon md-svg-icon="bower_components/material-design-icons/navigation/svg/production/ic_arrow_back_48px.svg"></md-icon>
+                </md-button>
+            </div>
+          </md-toolbar>
 
-      <md-content layout-padding ng-controller="LeftCtrl">
-        <md-list>
-          <md-list-item ng-click="closeAndChangePage('/')">
-            <md-icon md-svg-icon="bower_components/material-design-icons/action/svg/production/ic_home_48px.svg"></md-icon>
-            <p>Home</p>
-          </md-list-item>
+          <md-content layout-padding ng-controller="LeftCtrl">
+            <md-list>
+              <md-list-item ng-click="closeAndChangePage('/')">
+                <md-icon md-svg-icon="bower_components/material-design-icons/action/svg/production/ic_home_48px.svg"></md-icon>
+                <p>Home</p>
+              </md-list-item>
 
-          <md-list-item ng-click="closeAndChangePage('/profile')">
-            <md-icon md-svg-icon="bower_components/material-design-icons/social/svg/production/ic_person_48px.svg"></md-icon>
-            <p>My profile</p>
-          </md-list-item>
-          
-          <md-divider></md-divider>
+              <md-list-item ng-click="closeAndChangePage('/profile')">
+                <md-icon md-svg-icon="bower_components/material-design-icons/social/svg/production/ic_person_48px.svg"></md-icon>
+                <p>My profile</p>
+              </md-list-item>
+              
+              <md-divider></md-divider>
 
-          <md-list-item ng-click="closeAndChangePage('/about')">
-            <md-icon md-svg-icon="bower_components/material-design-icons/maps/svg/production/ic_local_offer_48px.svg"></md-icon>
-            <p>About</p>
-          </md-list-item>
-        </md-list>
-      </md-content>
-    </md-sidenav>
+              <md-list-item ng-click="closeAndChangePage('/about')">
+                <md-icon md-svg-icon="bower_components/material-design-icons/action/svg/production/ic_info_48px.svg"></md-icon>
+                <p>About</p>
+              </md-list-item>
+            </md-list>
+          </md-content>
+        </md-sidenav>
 
-      <div ng-controller="AppCtrl" class="view-container" layout="column" layout-fill>
+      <div class="view-container" layout="column" layout-fill>
 
         
-          <md-toolbar md-scroll-shrink>
+        
+          <md-toolbar id="toolbar" md-scroll-shrink>
             <div class="md-toolbar-tools">
               <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
                 <md-icon md-svg-icon="bower_components/material-design-icons/navigation/svg/production/ic_menu_48px.svg"></md-icon>
@@ -75,9 +77,12 @@
               <h2>
                 <span>unisalad</span>
               </h2>
+              <md-button class="md-icon-button to-right" aria-label="My things" ng-click="toggleRight()">
+                <md-icon md-svg-icon="bower_components/material-design-icons/social/svg/production/ic_person_48px.svg"></md-icon>
+              </md-button>
             </div>
           </md-toolbar>
-          <md-content class="all-content">
+          <md-content md-swipe-right="toggleLeft()" id="content-scrollable" class="all-content">
             <div class="container" ng-controller="AppCtrl">
               <div ng-view="" class="container-ng-view"></div>
             </div>
@@ -88,6 +93,18 @@
           </md-button>
 
       </div>
+
+      <md-sidenav md-component-id="right" md-is-locked-open="$mdMedia('min-width: 333px')" class="md-sidenav-right">
+        <form>
+          <md-input-container>
+            <label for="testInput">Test input</label>
+            <input id="testInput" type="text" ng-model="data" md-sidenav-focus>
+          </md-input-container>
+        </form>
+      </md-sidenav>
+
+
+    </div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -137,6 +154,8 @@
         <script src="scripts/controllers/postdetail.js"></script>
         <script src="scripts/services/tappedpost.js"></script>
         <!-- endbuild -->
+
+        <script src="scripts/jQuery-plugins/scrollTo.js"></script>
 
 </body>
 </html>

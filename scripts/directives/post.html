@@ -1,11 +1,12 @@
  <div class="post-card">
-	 <md-card>
+	 <md-card id="idCard{{ info.id }}" class="md-card">
 		 <md-card-content class="post-card-content">
-		 <div class="make-flex">
-			<h4>
-				{{ info.item | capitalise }}
-				<!-- MAKE CAPITALISATION HAPPEN ON STORAGE -->
-			</h4>
+		 	<div class="fill-absolute"></div>
+		 	<div class="make-flex">
+				<h4>
+					{{ info.item | capitalise }}
+					<!-- MAKE CAPITALISATION HAPPEN ON STORAGE -->
+				</h4>
 			
 			</div>
 
@@ -24,9 +25,11 @@
 			<div class="make-flex">
 				<!--<md-button class="md-icon-button" aria-label="up-vote"><md-icon md-svg-icon="bower_components/material-design-icons/action/svg/production/ic_thumb_up_48px.svg"></md-icon></md-button>
 				<md-button class="md-icon-button"><md-icon md-svg-icon="bower_components/material-design-icons/action/svg/production/ic_thumb_down_48px.svg"></md-icon></md-button>-->
-			<p><md-icon md-svg-icon="bower_components/material-design-icons/maps/svg/production/ic_place_24px.svg"></md-icon> {{ info.meet }}</p>
-			<p class="to-right card-username">{{ info.user }}</p>
-		</div>
+				<p>
+					<md-icon md-svg-icon="bower_components/material-design-icons/maps/svg/production/ic_place_24px.svg"></md-icon> {{ info.meet }}
+				</p>
+				<p class="to-right card-username">{{ info.user }}</p>
+			</div>
 		</md-card-content>
 	</md-card>
 </div>

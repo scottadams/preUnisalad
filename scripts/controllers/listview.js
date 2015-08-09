@@ -95,19 +95,67 @@ angular.module('yomantutApp')
     //---------------------------------------------------------------------
     //---------------------------------------------------------------------
     //---------------------------------------------------------------------
-    $scope.focusPost = $scope.posts[0]
+    $scope.focusPost = $scope.posts[0];
+    $scope.backdrop = false;
+
     $scope.openPostDetails = function($event, info) {
-        tappedPost.post = info
+
+
+        $scope.backdrop = true;
+
+        ScrollOperation(info);
+
+        tappedPost.post = info;
 
         $mdBottomSheet.show({
             templateUrl: 'views/postdetails.html',
             controller: 'PostdetailCtrl',
             targetEvent: $event
+        }).then(function () {
+            console.log('clicked a contact method');
+        }, function () {
+            console.log('cancelled');
+
+            var focusedId = "#idCard" + info.id;
+            $(focusedId).removeClass('bottom-sheet-open'); //
+            $('#listview').removeClass('bottom-sheet-open'); //add padding to bottom so lowest posts can still be brought up
+            //$('md-card.md-card > md-card-content > div.fill-absolute').removeClass('whiten');
         });
+        
+
+        
     };
 
-    $scope.test = function() {
-        console.log('test')
-    }
-
   }]);
+
+
+function ScrollOperation(info) {
+    var contentHeight = document.getElementById('content-scrollable').getBoundingClientRect().height;
+    var bottomSheetHeight = 220;
+    var postCardHeight = document.getElementById('id' + info.id).getBoundingClientRect().height;
+
+    //account for menu schrink status
+    var toolbarTransform = getComputedStyle(document.getElementById('toolbar'), null).transform.split(',')[5];
+    var toolbarY = parseInt(toolbarTransform.substring(0, toolbarTransform.length-1));
+    
+    var offsetTopCalc = contentHeight - (postCardHeight + bottomSheetHeight) + 5;
+    console.log(toolbarY +32)
+    offsetTopCalc += (toolbarY) % 65;
+
+    var cards = document.getElementsByClassName('md-card');
+    var idFormatted = '#idCard' + info.id;
+    $(idFormatted).addClass('bottom-sheet-open');
+
+    //for (var i = 0; i < cards.length; i++) {
+    //    idFormatted = '#idCard' + info.id;
+    //    if (idFormatted == '#' + cards[i].id) {
+    //        $(idFormatted).addClass('bottom-sheet-open'); TOO CPU INTENSIVE?
+    //    } else {
+    //        console.log(cards[i].id + ' ' + idFormatted)
+    //        $('#' + cards[i].id + ' > md-card-content > div.fill-absolute').addClass('whiten');
+    //    };
+    //};
+
+    $('#listview').addClass('bottom-sheet-open');
+    $('#content-scrollable').scrollTo('#id' + info.id, {offsetTop: offsetTopCalc});
+}
