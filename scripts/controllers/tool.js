@@ -13,25 +13,25 @@ angular.module('yomantutApp')
         label: 'tickets',
     	name: 'Tickets',
     	posts: '10',
-        icon: ''
+        icon: 'tickets'
     },
     {
         label: 'lifts',
     	name: 'Lifts',
     	posts: '21',
-        icon: 'bower_components/material-design-icons/maps/svg/production/ic_directions_car_48px.svg'
+        icon: 'lifts'
     },
     {
         label: 'misc',
     	name: 'Miscellaneous',
     	posts: '100',
-        icon: ''
+        icon: 'misc'
     },
     {
         label: 'sale',
     	name: 'For sale',
     	posts: '20',
-        icon: ''
+        icon: 'sell'
     }
     ];
 

@@ -8,9 +8,8 @@
  * Controller of the yomantutApp
  */
 angular.module('yomantutApp')
-  .controller('AppCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', '$animate', '$mdMedia', function ($scope, $timeout, $mdSidenav, $mdUtil, $log, $animate, $mdMedia) {
-    //$animate.enabled(false);
-    //$animate.enabled('md-sidenav', true);
+  .controller('AppCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', '$animate', '$mdMedia', '$location', 'localStorageService', 
+                    function ($scope, $timeout, $mdSidenav, $mdUtil, $log, $animate, $mdMedia, $location, localStorageService) {
 
     $scope.onListview = false;
     
@@ -27,32 +26,45 @@ angular.module('yomantutApp')
 
     function buildToggler(navID) {
       var debounceFn =  $mdUtil.debounce(function(){
-            $mdSidenav(navID)
-              .toggle()
-              .then(function () {
-                $log.debug('toggle ' + navID + ' is done');
-              });
-          },300);
+        $mdSidenav(navID)
+          .toggle()
+          .then(function () {
+            $log.debug('toggle ' + navID + ' is done');
+          });
+      },300);
       return debounceFn;
     }
 
     $scope.toggleLeft = buildToggler('left');
     $scope.toggleRight = buildToggler('right');
 
-
-
     $scope.loggedIn = true;
+
+    $scope.debugLoggedIn = function () {
+      console.log($scope.loggedIn)
+      localStorageService.set('loggedIn', $scope.loggedIn);
+    }
+
+    $scope.goTo = function (view) {
+      if(view == '/login') {
+      localStorageService.set('sign', 'in');
+      };
+      $location.path(view);
+    }
 
     $scope.wideScreen = $mdMedia('gt-md');
     
   }])
-  .controller('LeftCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', '$location', function ($scope, $timeout, $mdSidenav, $log, $location) {
+  .controller('LeftCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', '$location', 'localStorageService', function ($scope, $timeout, $mdSidenav, $log, $location, localStorageService) {
     $scope.closeAndChangePage = function (view) {
-      $location.path(view);
-      $mdSidenav('left').close()
-        .then(function () {
-          $log.debug('close LEFT is done');
-        });
+      var loggedIn = localStorageService.get('loggedIn');
+
+      if (loggedIn) {
+        $location.path('/tool');
+      }else {
+        $location.path('/');
+      }
+      $mdSidenav('left').close();
     };
   }])
   .controller('RightCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', '$location', function ($scope, $timeout, $mdSidenav, $log, $location) {

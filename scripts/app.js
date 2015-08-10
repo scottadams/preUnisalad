@@ -26,8 +26,22 @@ angular
   }])
   .config(function($mdIconProvider) {
     $mdIconProvider
-       .iconSet('social', 'img/icons/sets/notification-icons.svg', 24)
-       .defaultIconSet('img/icons/sets/core-icons.svg', 24);
+       .icon('add', 'images/icons/ic_add_24px.svg')
+       .icon('arrow_back', 'images/icons/ic_arrow_back_24px.svg')
+       .icon('arrow_forward', 'images/icons/ic_arrow_forward_24px.svg')
+       .icon('close', 'images/icons/ic_close_24px.svg')
+       .icon('edit', 'images/icons/ic_edit_24px.svg')
+       .icon('email', 'images/icons/ic_email_24px.svg')
+       .icon('home', 'images/icons/ic_home_24px.svg')
+       .icon('info', 'images/icons/ic_info_24px.svg')
+       .icon('menu', 'images/icons/ic_menu_24px.svg')
+       .icon('message', 'images/icons/ic_message_24px.svg')
+       .icon('person', 'images/icons/ic_person_24px.svg')
+       .icon('place', 'images/icons/ic_place_24px.svg')
+       .icon('tickets', 'images/icons/ic_local_play_48px.svg')
+       .icon('lifts', 'images/icons/ic_directions_car_48px.svg')
+       .icon('misc', 'images/icons/ic_forum_48px.svg')
+       .icon('sell', 'images/icons/ic_attach_money_48px.svg');
   })
   .config(function ($routeProvider) {
     $routeProvider
@@ -54,10 +68,6 @@ angular
       .when('/addPost', {
         templateUrl: 'views/addpost.html',
         controller: 'AddpostCtrl'
-      })
-      .when('/profile', {
-        templateUrl: 'views/profile.html',
-        controller: 'ProfileCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,8 +1,8 @@
 <div ng-controller="ToolCtrl">
 
 	<md-list>
-	  <md-list-item class="md-2-line" ng-click="goToList(option.label)" ng-repeat="option in items">
-	    <!--<md-icon md-svg-icon="{{option.icon}}"></md-icon>-->
+	  <md-list-item class="md-2-line" ng-click="goToList(option)" ng-repeat="option in items">
+	    <md-icon class="large-icon" md-svg-icon="{{ option.icon }}"></md-icon>
 	    <div class="md-list-item-text">
           <h3>{{ option.name }}</h3>
           <p>{{ option.posts }} posts</p>

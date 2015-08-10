@@ -11,6 +11,9 @@ angular.module('yomantutApp')
   .controller('ListviewCtrl', ['$scope', 'searchText', 'filterFilter', 'localStorageService', '$animate', '$mdBottomSheet', 'tappedPost',
                                 function ($scope, searchText, filterFilter, localStorageService, $animate, $mdBottomSheet, tappedPost) {
 
+
+    $scope.list = localStorageService.get('list');
+
     $scope.searchText = searchText;
 
     $scope.posts = [{
@@ -96,16 +99,16 @@ angular.module('yomantutApp')
     //---------------------------------------------------------------------
     //---------------------------------------------------------------------
     $scope.focusPost = $scope.posts[0];
-    $scope.backdrop = false;
+    //$scope.backdrop = false;
 
-    $scope.openPostDetails = function($event, info) {
+    $scope.openPostDetails = function($event, clickedPost) {
 
 
-        $scope.backdrop = true;
+        //$scope.backdrop = true;
 
-        tappedPost.post = info;
+        tappedPost.post = clickedPost;
 
-        ScrollOperation(info);
+        ScrollOperation(clickedPost);
         
         $mdBottomSheet.show({
             templateUrl: 'views/postdetails.html',
@@ -114,9 +117,9 @@ angular.module('yomantutApp')
         }).then(function () {
             console.log('clicked a contact method');
         }, function () {
-            console.log('cancelled');
+            console.log('cancelled bottom-sheet');
 
-            var focusedId = "#idCard" + info.id;
+            var focusedId = "#idCard" + clickedPost.id;
             $(focusedId).removeClass('bottom-sheet-open'); //
             $('#listview').removeClass('bottom-sheet-open'); //add padding to bottom so lowest posts can still be brought up
             //$('md-card.md-card > md-card-content > div.fill-absolute').removeClass('whiten');
@@ -129,7 +132,7 @@ angular.module('yomantutApp')
   }]);
 
 
-function ScrollOperation(info) {
+function ScrollOperation(clickedPost) {
     var contentHeight = document.getElementById('content-scrollable').getBoundingClientRect().height;
     var bottomSheetHeight = 220;
     var postCardHeight = document.getElementById('id' + info.id).getBoundingClientRect().height;

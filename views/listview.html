@@ -1,5 +1,8 @@
 <div ng-controller="ListviewCtrl" id="listview" class="listview-container">
-	<h1>Tickets</h1>
+	<span class="make-flex">
+		<md-icon class="large-icon title-icon" md-svg-icon="{{ list.icon }}"></md-icon>
+		<h1>{{ list.name }}</h1>
+	</span>
     <div class="search-container">
     	<md-input-container class="search-posts">
 	    	<label>Search</label>
@@ -11,7 +14,7 @@
 		</md-select>
   	</div>
 
-	<post id=" id{{ pst.id }}" ng-repeat="pst in posts | searchAll:searchText.words | orderBy:sortBy" ng-click="openPostDetails($event, pst)" info="pst">
-	</post>
+	<post-ticket id=" id{{ pst.id }}" ng-repeat="pst in posts | searchAll:searchText.words | orderBy:sortBy" ng-click="openPostDetails($event, pst)" info="pst">
+	</post-ticket>
 	
 </div>

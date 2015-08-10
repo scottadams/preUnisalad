@@ -7,9 +7,9 @@
  * # post
  */
 angular.module('yomantutApp')
-  .directive('post', function () {
+  .directive('postTicket', function () {
     return {
-      templateUrl: 'scripts/directives/post.html',
+      templateUrl: 'scripts/directives/postticket.html',
       restrict: 'E',
       scope: {
       	info: '='
