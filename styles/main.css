@@ -87,6 +87,10 @@ md-content.all-content {
   padding-bottom: 10px;
 }
 
+md-toolbar {
+  /*background-color: #008D8C;*/
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -115,13 +119,16 @@ md-content.all-content {
 
 }
 
+/*prevent focus glow */
+post, div, md-toolbar  { outline: none; }
+
 
 /*----------------------------------------------------------------------------------*/
 /*------------------------------------Main Page-------------------------------------*/
 /*----------------------------------------------------------------------------------*/
 
 .select-uni {
-  margin-top: 50px;
+  
   margin-bottom: 5px;
   width: 94%;
   margin-left: 8px;
@@ -245,6 +252,8 @@ md-card {
 
 md-bottom-sheet.post-detail-sheet {
   max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -296,6 +305,10 @@ div.fill-absolute {
 
 div.fill-absolute.whiten {
   background-color: rgba(255, 255, 255, 0.4);
+}
+
+md-bottom-sheet.post-detail-sheet {
+
 }
 
 

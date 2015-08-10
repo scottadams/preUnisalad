@@ -8,7 +8,7 @@
  * Controller of the yomantutApp
  */
 angular.module('yomantutApp')
-  .controller('AppCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', '$animate', function ($scope, $timeout, $mdSidenav, $mdUtil, $log, $animate) {
+  .controller('AppCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', '$animate', '$mdMedia', function ($scope, $timeout, $mdSidenav, $mdUtil, $log, $animate, $mdMedia) {
     //$animate.enabled(false);
     //$animate.enabled('md-sidenav', true);
 
@@ -43,6 +43,7 @@ angular.module('yomantutApp')
 
     $scope.loggedIn = true;
 
+    $scope.wideScreen = $mdMedia('gt-md');
     
   }])
   .controller('LeftCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', '$location', function ($scope, $timeout, $mdSidenav, $log, $location) {
