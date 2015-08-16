@@ -11,25 +11,28 @@
 angular.module('yomantutApp')
   .filter('searchAll', function () {
     return function(input, searchText){
-         var returnArray = [];
-         if(searchText != ''){
-         	var searchTextSplit = searchText.toLowerCase().split(' ');
- 		} else{
- 			var searchTextSplit = [''];
- 		}
-        for(var x = 0; x < input.length; x++){
-             var count = 0;
+      var returnArray = [];
+      if(searchText != ''){
+        console.log(searchText);
+       	var searchTextSplit = searchText.toLowerCase().split(' ');
+          for(var x = 0; x < input.length; x++){
+            var count = 0;
             for(var y = 0; y < searchTextSplit.length; y++){
-                if(input[x]['item'].toLowerCase().indexOf(searchTextSplit[y]) !== -1 
-                	|| input[x]['meet'].toLowerCase().indexOf(searchTextSplit[y]) !== -1 
-                	|| input[x]['user'].toLowerCase().indexOf(searchTextSplit[y]) !== -1){
-                    count++;
+              
+              if(input[x]['item'].toLowerCase().indexOf(searchTextSplit[y]) !== -1 
+                || input[x]['meet'].toLowerCase().indexOf(searchTextSplit[y]) !== -1 
+                || input[x]['user'].toLowerCase().indexOf(searchTextSplit[y]) !== -1){
+                  count++;
                 }
             }
-            if(count == searchTextSplit.length){
-                 returnArray.push(input[x]);   
+              if(count == searchTextSplit.length){
+                returnArray.push(input[x]);   
             }
-        }
-        return returnArray;
+          }
+          return returnArray;
+ 		} else{
+ 			
+            return input;
+ 		}
     }
   });

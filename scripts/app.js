@@ -38,10 +38,12 @@ angular
        .icon('message', 'images/icons/ic_message_24px.svg')
        .icon('person', 'images/icons/ic_person_24px.svg')
        .icon('place', 'images/icons/ic_place_24px.svg')
+       .icon('delete', 'images/icons/ic_delete_24px.svg')
        .icon('tickets', 'images/icons/ic_local_play_48px.svg')
        .icon('lifts', 'images/icons/ic_directions_car_48px.svg')
        .icon('misc', 'images/icons/ic_forum_48px.svg')
-       .icon('sell', 'images/icons/ic_attach_money_48px.svg');
+       .icon('sell', 'images/icons/ic_attach_money_48px.svg')
+       .icon('homeBig', 'images/icons/ic_home_48px.svg');
   })
   .config(function ($routeProvider) {
     $routeProvider
@@ -65,9 +67,13 @@ angular
         templateUrl: 'views/listview.html',
         controller: 'ListviewCtrl'
       })
-      .when('/addPost', {
+      .when('/addpost', {
         templateUrl: 'views/addpost.html',
         controller: 'AddpostCtrl'
+      })
+      .when('/confirmationsent', {
+        templateUrl: 'views/confirmationsent.html',
+        controller: 'ConfirmationsentCtrl'
       })
       .otherwise({
         redirectTo: '/'

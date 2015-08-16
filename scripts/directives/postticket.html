@@ -7,7 +7,6 @@
 					{{ info.item | capitalise }}
 					<!-- MAKE CAPITALISATION HAPPEN ON STORAGE -->
 				</h4>
-			
 			</div>
 
 			<md-divider></md-divider>
@@ -26,10 +25,11 @@
 				<!--<md-button class="md-icon-button" aria-label="up-vote"><md-icon md-svg-icon="bower_components/material-design-icons/action/svg/production/ic_thumb_up_48px.svg"></md-icon></md-button>
 				<md-button class="md-icon-button"><md-icon md-svg-icon="bower_components/material-design-icons/action/svg/production/ic_thumb_down_48px.svg"></md-icon></md-button>-->
 				<p>
-					<md-icon md-svg-icon="bower_components/material-design-icons/maps/svg/production/ic_place_24px.svg"></md-icon> {{ info.meet }}
+					<md-icon md-svg-icon="place"></md-icon> {{ info.meet }}
 				</p>
 				<p class="to-right card-username">{{ info.user }}</p>
 			</div>
+			<p>{{ info.extraInfo }}</p>
 		</md-card-content>
 	</md-card>
 </div>

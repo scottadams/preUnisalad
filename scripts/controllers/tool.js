@@ -9,6 +9,8 @@
  */
 angular.module('yomantutApp')
   .controller('ToolCtrl', ['$scope', '$location', 'localStorageService', function ($scope, $location, localStorageService) {
+    $scope.university = localStorageService.get('uni');
+
     $scope.items = [ {
         label: 'tickets',
     	name: 'Tickets',
@@ -20,6 +22,12 @@ angular.module('yomantutApp')
     	name: 'Lifts',
     	posts: '21',
         icon: 'lifts'
+    },
+    {
+        label: 'houses',
+        name: 'Houses',
+        posts: '-20',
+        icon: 'homeBig'
     },
     {
         label: 'misc',
@@ -36,7 +44,6 @@ angular.module('yomantutApp')
     ];
 
     $scope.goToList = function (list) {
-        console.log(list);
         $location.path('/listview');
         localStorageService.set('list', list);
     };

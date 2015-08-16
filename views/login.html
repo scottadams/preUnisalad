@@ -34,7 +34,7 @@
               <label>University email</label>
               <input ng-model="user.email" type="email">
               <div ng-messages="projectForm.clientName.$error">
-                <div class="price-notice" ng-message="ng-maxlength">A confimration email will be sent</div>
+                <div class="price-notice" ng-message="ng-maxlength">A confirmation email will be sent</div>
               </div>
           </md-input-container>
           <md-input-container flex>
@@ -48,9 +48,9 @@
           <md-input-container flex>
               <md-button class="md-primary md-raised facebook" ng-click="createUser">Connect with facebook?</md-button>
           </md-input-container>
-          <p>None of your personnal details will be shared to any third parties. They will only be used to enable you to contact other students through the site</p>
+          <p>None of your personal details will be shared to any third parties. They will only be used to enable you to contact other students through the site</p>
           <md-input-container flex>
-              <md-button class="md-primary md-raised">Send confirmation email</md-button>
+              <md-button class="md-primary md-raised button-wide" ng-href="#/confirmationsent">Send confirmation email</md-button>
           </md-input-container>
         </md-content>
       </md-tab>

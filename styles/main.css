@@ -11,14 +11,26 @@ body {
   flex-flow: row;
 }
 
+h1 {
+  font-weight: normal;
+  font-size: 3em;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 2em;
+}
+
+h4 { 
+font-weight: normal;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .marketing,
 .footer {
   padding-left: 15px;
   padding-right: 15px;
 }
-
-/* Custom page header */
 
 div.all {
   position: absolute;
@@ -88,7 +100,8 @@ md-content.all-content {
 }
 
 md-toolbar {
-  /*background-color: #008D8C;*/
+  background-color: #008D8C;
+  background-color: #00BCBB;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -120,7 +133,10 @@ md-toolbar {
 }
 
 /*prevent focus glow */
-post, div, md-toolbar  { outline: none; }
+post, div, md-toolbar  {
+  outline: none;
+}
+
 
 
 /*----------------------------------------------------------------------------------*/
@@ -154,7 +170,7 @@ md-select-label {
 /*----------------------------------------------------------------------------------*/
 
 
-.md-toolbar-tools > .to-right, .to-right {
+.md-toolbar-tools > .to-right, .md-icon-button.to-right, .to-right {
   margin-left: auto;
 }
 
@@ -162,6 +178,37 @@ md-select-label {
   margin: 0;
 }
 
+.mythings-sidenav {
+  display: flex;
+  flex-direction:column;
+}
+
+.mythings-fix {
+  flex: 0 1 auto;
+}
+
+.mythings-fill {
+  flex: 1 1 auto;
+}
+
+.md-list.personalinfo {
+  border-bottom: 1 solid rgba(0, 0, 0, 0.87);
+}
+
+.md-button.md-grid-item-content.list-button {
+  min-width: 36px;
+  border-radius: 50%;
+}
+
+md-grid-list.md-secondary {
+  top: auto;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+md-grid-list.md-secondary > md-grid-list-item {
+  border-radius: 50%;
+}
 
 
 /*----------------------------------------------------------------------------------*/
@@ -249,6 +296,8 @@ md-card {
   color: rgba(0,0,0,0.87);
   -webkit-transition: color 0.4s;
   transition: color 0.4s;
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 .post-card-content :last-child {
@@ -292,19 +341,23 @@ div.listview-container {
   margin-bottom: 0;
   -webkit-transition: margin-bottom 0.4s;
   transition: margin-bottom 0.4s;
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 div.listview-container.bottom-sheet-open {
-  margin-bottom: 300px;
+  margin-bottom: 200px;
 }
 
 md-card {
   -webkit-transition: box-shadow 0.3s;
   transition: box-shadow 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 md-card.bottom-sheet-open {
-  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.14), 0px 16px 24px 2px rgba(0, 0, 0, 0.098), 0px 6px 30px 5px rgba(0, 0, 0, 0.084);
+  box-shadow: 0px 8px 10px -5px rgba(0, 141,140, 0.14), 0px 16px 24px 2px rgba(0, 141,140, 0.098), 0px 6px 30px 5px rgba(0, 141,140, 0.084);
 }
 
 div.fill-absolute {
@@ -317,14 +370,23 @@ div.fill-absolute {
   z-index: 10;
   -webkit-transition: background-color 0.4s;
   transition: background-color 0.4s;
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 div.fill-absolute.whiten {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-md-bottom-sheet.post-detail-sheet {
+md-icon.card-lifts-toArrow {
+  width: 24px;
+  margin-left: auto;
+  margin-right: 8px;
+}
 
+div > h3:first-child {
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 
@@ -372,4 +434,18 @@ md-input-container > md-select-label {
 
 div .price-notice {
   color: rgba(0,0,0,0.54);
+}
+
+md-toolbar.toolbar-addpost {
+  box-shadow: none;
+  background-color: #f6f6f6;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+md-toolbar.toolbar-addpost md-icon {
+ color: rgba(0, 0, 0, 0.87);
+}
+
+md-select.select-withlabel {
+  padding-bottom: 4px;
 }

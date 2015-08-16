@@ -41,13 +41,12 @@ angular.module('yomantutApp')
     $scope.loggedIn = true;
 
     $scope.debugLoggedIn = function () {
-      console.log($scope.loggedIn)
       localStorageService.set('loggedIn', $scope.loggedIn);
     }
 
     $scope.goTo = function (view) {
       if(view == '/login') {
-      localStorageService.set('sign', 'in');
+        localStorageService.set('sign', 'in');
       };
       $location.path(view);
     }
@@ -71,4 +70,10 @@ angular.module('yomantutApp')
     $scope.closeRight = function () {
       $mdSidenav('right').close();
     };
+
+    $scope.editPost = function(postId) {
+      $scope.closeRight();
+      $location.path('/addpost');
+      //populate addpost with post info
+    }
   }]);
